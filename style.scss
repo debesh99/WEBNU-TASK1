@@ -1,0 +1,113 @@
+            @mixin flexing($jc, $fd, $ai) {
+                display: flex;
+                justify-content: $jc;
+                align-items: $ai;
+                flex-direction: $fd;
+            }
+            
+            $var-pr:rgb(255, 51, 90);
+            $var-sc:white;
+            main {
+                background-color: $var-pr;
+                // border: 2px solid red;
+                position: absolute;
+                width: 80vh;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                overflow: hidden;
+                padding: 1%;
+                .section-one {
+                    width: 100%;
+                    // border: 2px solid rgb(17, 0, 255);
+                    @include flexing(space-between, row, center);
+                    // padding: 2%;
+                    .container {
+                        background-color: $var-sc;
+                        // border: 2px solid rgb(0, 255, 42);
+                        border-radius: 1vh;
+                        margin: 0% 1%;
+                        @include flexing(center, column, center);
+                        img {
+                            width: 100%;
+                        }
+                        button {
+                            background-color: $var-pr;
+                            color: $var-sc;
+                            border-radius: 2vh;
+                            margin: 4% 0;
+                            padding: 5%;
+                            width: 90%;
+                        }
+                    }
+                }
+                .section2 {
+                    // border: 2px solid rgb(204, 175, 175);
+                    background-color: $var-sc;
+                    width: 100%;
+                    height: 25vh;
+                    margin: 4% 0%;
+                    border-radius: 1vh 1vh 0 0;
+                    @include flexing(space-evenly, row, center);
+                    h1 {
+                        border: 2px solid rgb(204, 175, 175);
+                        padding: 1%;
+                    }
+                    img {
+                        width: 70%
+                    }
+                }
+                .section3 {
+                    // border: 2px solid black;
+                    height: 25vh;
+                    background-color: $var-sc;
+                    border-radius: 1vh 1vh 0 0;
+                    @include flexing(space-between, row, center);
+                    h2 {
+                        margin: 0 1%;
+                        border: 2px solid rgb(204, 175, 175);
+                        padding: 1%;
+                    }
+                    img {
+                        width: 70%;
+                        margin: 0 2%;
+                    }
+                }
+                @media screen and (max-width :770px) {
+                    width: 70vh;
+                }
+                @media screen and (max-width :670px) {
+                    width: 50vh;
+                    .section3 {
+                        img {
+                            width: 50%;
+                        }
+                    }
+                    .section2 {
+                        img {
+                            width: 50%;
+                        }
+                    }
+                }
+                @media screen and (max-width :420px) {
+                    width: 30vh;
+                    .section2 {
+                        @include flexing(center, column, center);
+                        h1 {
+                            font-size: 0.8rem;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .section3 {
+                        @include flexing(center, column, center);
+                        h2 {
+                            font-size: 0.8rem;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
